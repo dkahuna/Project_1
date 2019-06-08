@@ -1,10 +1,3 @@
-
-
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#config-web-app -->
-
-
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyAEqy1w_rA9vaam91TGLOswjXOkNb5I3GE",
