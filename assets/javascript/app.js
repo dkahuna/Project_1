@@ -24,3 +24,15 @@ function closeNav() {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
+  // This is the API Key I created to use for our project
+  //      AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs     //google map api key
+
+   var queryURL = "https://api.giphy.com/v1/gifs/search?q=&api_key=AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs&limit=";
+
+   $.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function (response) {
+  console.log (response)
+});
