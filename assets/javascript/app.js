@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 // NavBar Functions
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
@@ -12,7 +11,7 @@ function closeNav() {
   document.getElementById("main").style.marginLeft= "0";
   document.body.style.backgroundColor = "white";
 }
->>>>>>> 982068a7de05f52b1cfc7f30ad61982c8732e146
+
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyAEqy1w_rA9vaam91TGLOswjXOkNb5I3GE",
