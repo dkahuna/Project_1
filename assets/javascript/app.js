@@ -26,11 +26,20 @@ function closeNav() {
   // This is the API Key I created to use for our project
   //      AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs     //google map api key
 
-   var queryURL = "https://api.giphy.com/v1/gifs/search?q=&api_key=AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs&limit=";
+   var queryURL = "https://maps.googleapis.com/maps/api/js?key=AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs&callback=initMap"
+//    $.ajax({
+//     url: queryURL,
+//     method: "GET"
+// }).then(function (response) {
+//   console.log (response)
+// });
 
-   $.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function (response) {
-  console.log (response)
-});
+
+// For Google MAPs
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+}
