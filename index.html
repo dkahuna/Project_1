@@ -11,13 +11,15 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTk13G_iLxSGRSv1t6t_DjREfE-6cVhmI&callback=initMap"
     async defer></script>
   <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="assets/javascript/app.js"></script>
   <title>Waste-To-Go</title>
 </head>
 
 <body>
         <!--Creating a side Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ 
+        <nav class=" nav-styles navbar navbar-expand-lg">
             <a class="navbar-brand" href="#">Waste to Go</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -32,8 +34,7 @@
               </div>
             </div>
           </nav>
-
-        <!-- Use any element to open the sidenav -->
+      
 
         <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
         <div class="container">
@@ -41,7 +42,7 @@
             <div class="col-0 col-sm-1 col-md-3 col-lg-3"></div>
             <div class="col-0 col-sm-10 col-md-6 col-lg-6">
               <div class="map-launch">
-               <a href="map.html"><img class="logo-button" src="assets\images\recycling-logo.png" alt="Waste to Go Logo"></a>
+               <img id="logo-button" src="assets\images\recycling-logo.png" alt="Waste to Go Logo">
               </div>
             </div>
             <div class="col-0 col-sm-1 col-md-3 col-lg-3"></div>

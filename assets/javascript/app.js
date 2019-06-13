@@ -1,4 +1,4 @@
-
+$(document).ready(function() {
 // NavBar Functions
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
@@ -29,21 +29,20 @@ function closeNav() {
   //      AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs     //google map api key
 
    var queryURL = "https://maps.googleapis.com/maps/api/js?key=AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs&callback=initMap"
-//    $.ajax({
-//     url: queryURL,
-//     method: "GET"
-// }).then(function (response) {
-//   console.log (response)
-// });
+   $.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function (response) {
+  console.log (response)
+});
 
 
-// For Google MAPs
+// // For Google MAPs
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: {lat: 36.1449931 , lng: -86.8042169},
     zoom: 17
   });
-};
-
-
+}
+});
