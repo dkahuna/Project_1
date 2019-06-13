@@ -38,10 +38,12 @@ function closeNav() {
 
 
 // For Google MAPs
-var map;
+
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 8
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: {lat: 36.1449931 , lng: -86.8042169},
+    zoom: 17
   });
-}
+};
+
+
