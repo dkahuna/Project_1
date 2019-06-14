@@ -1,10 +1,10 @@
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 8
-  });
-}
+// var map;
+// function initMap() {
+//   map = new google.maps.Map(document.getElementById('map'), {
+//     center: {lat: -34.397, lng: 150.644},
+//     zoom: 8
+//   });
+// }
 
 $(function(){
 // NavBar Functions
@@ -33,17 +33,9 @@ function closeNav() {
   // This is the API Key I created to use for our project
   //      AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs     //google map api key
   
-  
-  // function initMap(){
-  //   //
-  //     var queryURL = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCTk13G_iLxSGRSv1t6t_DjREfE-6cVhmI&callback=initMap";
-  //     $.ajax({
-  //     url: queryURL,
-  //     method: "GET"
-  //   }).then(function (response) {
-  //     console.log (response)
-  //   });
-  //   }
+  $(".map-launch").click(function() {
+    
+  });
 
 
   $("#list").click(function() {
