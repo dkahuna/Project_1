@@ -1,17 +1,23 @@
-$(document).ready(function() {
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+}
+
+$(function(){
 // NavBar Functions
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
   document.getElementById("main").style.marginLeft = "250px";
   document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
-
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("main").style.marginLeft= "0";
   document.body.style.backgroundColor = "white";
 }
-
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyAEqy1w_rA9vaam91TGLOswjXOkNb5I3GE",
@@ -24,25 +30,19 @@ function closeNav() {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
   // This is the API Key I created to use for our project
   //      AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs     //google map api key
+  
+  
+  // function initMap(){
+  //   //
+  //     var queryURL = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCTk13G_iLxSGRSv1t6t_DjREfE-6cVhmI&callback=initMap";
+  //     $.ajax({
+  //     url: queryURL,
+  //     method: "GET"
+  //   }).then(function (response) {
+  //     console.log (response)
+  //   });
+  //   }
 
-   var queryURL = "https://maps.googleapis.com/maps/api/js?key=AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs&callback=initMap"
-   $.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function (response) {
-  console.log (response)
-});
-
-
-// // For Google MAPs
-
-function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: {lat: 36.1449931 , lng: -86.8042169},
-    zoom: 17
   });
-}
-});
