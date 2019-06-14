@@ -1,10 +1,10 @@
-// var map;
-// function initMap() {
-//   map = new google.maps.Map(document.getElementById('map'), {
-//     center: {lat: -34.397, lng: 150.644},
-//     zoom: 8
-//   });
-// }
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 36.1447034, lng: -86.8026551},
+    zoom: 19
+  });
+}
 
 $(function(){
 // NavBar Functions
@@ -34,7 +34,8 @@ function closeNav() {
   //      AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs     //google map api key
   
   $(".map-launch").click(function() {
-    
+    $("#map").css("display","inherit");
+    $(".map-launch").css("display", "none");
   });
 
 
