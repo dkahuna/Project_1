@@ -90,7 +90,6 @@ body {
 }
 
 #list {
-    /* background-color:#3E3C39; */
     font-size:30px;
     cursor:pointer;
     position: absolute;
@@ -99,14 +98,15 @@ body {
 
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-       #map {
-        height: 100%;
-      }
+#map {
+  height: 100%;
+  display: none;
+}
       /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 
