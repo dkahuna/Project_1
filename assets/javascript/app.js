@@ -45,4 +45,13 @@ function closeNav() {
   //   });
   //   }
 
+
+  $("#list").click(function() {
+    openNav();
+  });
+
+  $("#closebtn").click(function() {
+    closeNav();
+  });
+
   });
