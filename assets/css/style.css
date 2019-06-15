@@ -34,11 +34,6 @@ body {
   max-height:100%;
 }
 
-.nav-styles {
-  background-color: #3E3C39;
-  color: #DBB57B;
-}
-
 .sidenav {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
@@ -57,14 +52,14 @@ body {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #ffffff;
   display: block;
   transition: 0.3s;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #42b63e;
 }
 
 /* Position and style the close button (top right corner) */
@@ -76,9 +71,16 @@ body {
   margin-left: 50px;
 }
 
+#news {
+  width: 80%;
+  height: 100%; 
+  float: right;
+  text-align: center; 
+}
+
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
-    text-align: center;
+  text-align: center;
   transition: margin-left .5s;
   padding: 20px;
 }
@@ -88,6 +90,10 @@ body {
     cursor:pointer;
     position: absolute;
     top: 0px;
+    background-color: #EFAA3F;
+    opacity:0.4;
+    padding: 5px;
+
 }
 
       /* Always set the map height explicitly to define the size of the div
