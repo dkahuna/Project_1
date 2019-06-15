@@ -33,6 +33,13 @@ function closeNav() {
   // This is the API Key I created to use for our project
   //      AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs     //google map api key
   
+
+// news API d880922dbc9a49ccb187808ce3ffcb46
+
+var queryURL = 
+
+
+
   $(".map-launch").click(function() {
     $("#map").css("display","inherit");
     $(".map-launch").css("display", "none");
