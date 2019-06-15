@@ -1,3 +1,4 @@
+// Google's library call for the map
 var map;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
@@ -38,7 +39,7 @@ function closeNav() {
     $(".map-launch").css("display", "none");
   });
 
-
+// Open and Closing tab for user(Lines 43-49)
   $("#list").click(function() {
     openNav();
   });
@@ -46,5 +47,7 @@ function closeNav() {
   $("#closebtn").click(function() {
     closeNav();
   });
+
+
 
   });
