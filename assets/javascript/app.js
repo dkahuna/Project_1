@@ -33,14 +33,21 @@ function closeNav() {
   //      AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs     //google map api key
   
 
-// news API d880922dbc9a49ccb187808ce3ffcb46
+// news API Key d880922dbc9a49ccb187808ce3ffcb46
+// news API URL
 
 var url = 'https://newsapi.org/v2/everything?' +
-          'q=Environment&' +
-          'from=2019-06-15&' +
+          'q="climate change"&' +
+          'from=2019-06-16&' +
           'sortBy=popularity&' +
           'apiKey=d880922dbc9a49ccb187808ce3ffcb46';
 
+// display toggle variables
+
+$("#news").css("display", "none")
+var newsDisplay = true;
+
+// News API call and article card generation 
 var req = new Request(url);
 
   fetch(req)
@@ -48,11 +55,7 @@ var req = new Request(url);
       console.log(response.json().then(function (a) {
         console.log(a.articles);
         var articles = a.articles;
-        var clicks = 0;
-        
-
-        $("#news-btn").click(function() {
-
+      
         for (var i = 0; i < articles.length; i++) {
           var link = articles[i].url;
           var image = articles[i].urlToImage;
@@ -89,16 +92,29 @@ var req = new Request(url);
 
           $("#news").append(articleCard);
 
-        };
-  
-
-      });
-      }));
-
-  
+      };
+    }));
     });
 
-    
+//toggles news display
+
+    $("#news-btn").click(function() {
+      if (newsDisplay === true) {
+        console.log(newsDisplay);
+        $("#news").css("display","block");
+        $(".map-launch").css("display", "none");
+        newsDisplay = false;
+        console.log(newsDisplay)
+      } else if (newsDisplay === false) {
+        console.log(newsDisplay)
+        $("#news").css("display", "none");
+        $(".map-launch").css("display", "initial");
+        newsDisplay = true;
+        console.log(newsDisplay)
+      };
+    });
+
+//  displays map
 
   $(".map-launch").click(function() {
     $("#map").css("display","inherit");
