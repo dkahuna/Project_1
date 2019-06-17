@@ -8,7 +8,7 @@ function initMap() {
   var marker = new google.maps.Marker({
     position: {lat: 36.145353, lng: -86.802771},
     map: map,
-    title: "Recycling Zone",
+    title: "A",
     animation: google.maps.Animation.Bounce,
     draggable: true
   });
@@ -16,10 +16,19 @@ function initMap() {
   var marker01 = new google.maps.Marker({
     position: {lat: 36.144912, lng: -86.803641},
     map: map,
-    title: "Renewable",
+    title: "B",
     animation: google.maps.Animation.Bounce,
     draggable: true
   });
+
+var marker02 = new google.maps.Marker({
+  position: {lat: 36.144631, lng: -86.802620},
+  map: map,
+  title: "C",
+  animation: google.maps.Animation.BOUNCE,
+  
+})
+
   infoWindow = new google.maps.InfoWindow;
  
   if (navigator.geolocation) {
@@ -30,7 +39,7 @@ function initMap() {
       };
 
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
+      infoWindow.setContent('HERE');
       infoWindow.open(map);
       map.setCenter(pos);
     }, function() {
@@ -50,21 +59,18 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
-
-
-
 $(function(){
-// NavBar Functions
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-}
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-  document.body.style.backgroundColor = "white";
-}
+  // NavBar Functions
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  }
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+  }
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyAEqy1w_rA9vaam91TGLOswjXOkNb5I3GE",
@@ -85,15 +91,15 @@ function closeNav() {
     $(".map-launch").css("display", "none");
     initMap();
   });
-
-// Open and Closing tab for user(Lines 43-49)
+  
+  // Open and Closing tab for user(Lines 43-49)
   $("#list").click(function() {
     openNav();
   });
-
+  
   $("#closebtn").click(function() {
     closeNav();
   });
-
+  
   
 });
