@@ -25,7 +25,7 @@
       
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" id="closebtn">&#9776;</a>
-    <a href="#">Profile</a>
+    <a href="#" id="profile-btn">Profile</a>
     <a href="#" id="news-btn">Enviro News</a>
     <a href="#">About Us</a>
   </div>
@@ -47,7 +47,32 @@
         </div>
 
         <div id="news"></div>
-        <div id="profile"></div>
+        <div id="profile">
+
+          <div class="media">
+            <img src="assets\images\recycle-robot.jpg" class="mr-3" id="profile-pic" alt="profile pic">
+            <div class="media-body">
+              <h5 class="heading mt-0">Profile</h5>
+              <p>This is my bio. Recycling is great and very important. I need way more text to make sure my bio is long enough to push down the other components of this div.</p>
+              <h5 class="heading">Acheivements</h5>
+              <div>
+                <!-- display achievements based on recycling done -->
+              </div>
+              <h5 class="heading">Recycling Donation Tracker</h5>
+              <div>
+                <!-- display amount of recycling done -->
+              </div>
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Add a Donation</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Donation in LBS">
+                </div>
+                <button type="submit" class="btn btn-primary btn-green">Submit</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
       
 
 </body>

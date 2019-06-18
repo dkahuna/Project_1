@@ -43,8 +43,9 @@ var url = 'https://newsapi.org/v2/everything?' +
           'apiKey=d880922dbc9a49ccb187808ce3ffcb46';
 
 // display toggle variables
-
-$("#news").css("display", "none")
+$("#profile").css("display","none");
+var profileDisplay = true;
+$("#news").css("display", "none");
 var newsDisplay = true;
 
 // News API call and article card generation 
@@ -67,6 +68,7 @@ var req = new Request(url);
             "display": "inline-block",
             "margin": "5px",
             "border": "1px solid #3E3C39",
+            "box-shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.30)"
           });
 
 
@@ -100,21 +102,31 @@ var req = new Request(url);
 
     $("#news-btn").click(function() {
       if (newsDisplay === true) {
-        console.log(newsDisplay);
         $("#news").css("display","block");
         $(".map-launch").css("display", "none");
         newsDisplay = false;
-        console.log(newsDisplay)
       } else if (newsDisplay === false) {
-        console.log(newsDisplay)
         $("#news").css("display", "none");
         $(".map-launch").css("display", "initial");
         newsDisplay = true;
-        console.log(newsDisplay)
       };
     });
 
-//  displays map
+    //toggles profile display 
+
+    $("#profile-btn").click(function() {
+      if (profileDisplay === true) {
+        $("#profile").css("display","block");
+        $(".map-launch").css("display", "none");
+        profileDisplay = false;
+      } else if (profileDisplay === false) {
+        $("#profile").css("display", "none");
+        $(".map-launch").css("display", "initial");
+        profileDisplay = true;
+      };
+    });
+
+//  displays map on click 
 
   $(".map-launch").click(function() {
     $("#map").css("display","inherit");
