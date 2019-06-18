@@ -142,6 +142,28 @@ var req = new Request(url);
     closeNav();
   });
 
+//donation tracking
+
+
+var newDonation = 0; 
+var totalDonation = 0;
+
+  if (totalDonation = 0) {
+    localStorage.setItem("totalDonation", totalDonation);
+  } else {
+    localStorage.getItem("totalDonation", totalDonation);
+  };
+
+$("#donation-total").text(`You have recycled ${localStorage.getItem("totalDonation")} pounds of plastic!`);
+
+$("#donate").click(function(event) {
+  event.preventDefault();
+  newDonation = $("#donation-input").val().trim();
+  totalDonation = parseInt(newDonation) + totalDonation;
+  localStorage.setItem("totalDonation", totalDonation);
+  $("#donation-total").text(`You have recycled ${localStorage.getItem("totalDonation")} pounds of plastic!`);
+});
+
 
 
   });
