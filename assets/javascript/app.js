@@ -12,23 +12,11 @@ $(function(){
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
   document.getElementById("main").style.marginLeft = "250px";
-}
+}; 
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("main").style.marginLeft= "0";
-}
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAEqy1w_rA9vaam91TGLOswjXOkNb5I3GE",
-    authDomain: "vandy-d634c.firebaseapp.com",
-    databaseURL: "https://vandy-d634c.firebaseio.com",
-    projectId: "vandy-d634c",
-    storageBucket: "vandy-d634c.appspot.com",
-    messagingSenderId: "1053278871795",
-    appId: "1:1053278871795:web:6f9a35ff32a59b57"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+};
   // This is the API Key I created to use for our project
   //      AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs     //google map api key
   
@@ -37,14 +25,15 @@ function closeNav() {
 // news API URL
 
 var url = 'https://newsapi.org/v2/everything?' +
-          'q="climate change"&' +
-          'from=2019-06-16&' +
+          'q="pollution"&' +
+          'from=2019-06-17&' +
           'sortBy=popularity&' +
           'apiKey=d880922dbc9a49ccb187808ce3ffcb46';
 
 // display toggle variables
 $("#profile").css("display","none");
 var profileDisplay = true;
+
 $("#news").css("display", "none");
 var newsDisplay = true;
 
@@ -144,26 +133,20 @@ var req = new Request(url);
 
 //donation tracking
 
-
 var newDonation = 0; 
-var totalDonation = 0;
+var totalDonation = localStorage.getItem("totalDonation") ? localStorage.getItem("totalDonation") : 0;
+$("#donation-total").text(`You have recycled ${totalDonation} pounds of plastic!`);
 
-  if (totalDonation = 0) {
-    localStorage.setItem("totalDonation", totalDonation);
-  } else {
-    localStorage.getItem("totalDonation", totalDonation);
-  };
 
-$("#donation-total").text(`You have recycled ${localStorage.getItem("totalDonation")} pounds of plastic!`);
 
 $("#donate").click(function(event) {
   event.preventDefault();
   newDonation = $("#donation-input").val().trim();
-  totalDonation = parseInt(newDonation) + totalDonation;
+  totalDonation = parseInt(newDonation) + parseInt(totalDonation);
+  console.log(totalDonation)
   localStorage.setItem("totalDonation", totalDonation);
-  $("#donation-total").text(`You have recycled ${localStorage.getItem("totalDonation")} pounds of plastic!`);
+  $("#donation-total").text(`You have recycled ${totalDonation} pounds of plastic!`);
 });
-
 
 
   });
