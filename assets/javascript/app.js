@@ -7,6 +7,82 @@ function initMap() {
   });
 }
 
+// Google's library call for the map
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 36.1447034, lng: -86.8026551},
+    zoom: 19
+  });
+  var marker = new google.maps.Marker({
+    position: {lat: 36.145353, lng: -86.802771},
+    map: map,
+    title: "A",
+    animation: google.maps.Animation.BOUNCE
+  });
+  
+  var marker01 = new google.maps.Marker({
+    position: {lat: 36.144912, lng: -86.803641},
+    map: map,
+    title: "B",
+    animation: google.maps.Animation.BOUNCE
+  });
+
+
+var marker02 = new google.maps.Marker({
+  position: {lat: 36.144631, lng: -86.802620},
+  map: map,
+  title: "C",
+  animation: google.maps.Animation.BOUNCE
+});
+
+var marker03 = new google.maps.Marker({
+    position: {lat: 36.144437, lng: -86.803493},
+    map: map,
+    title: "D",
+    animation: google.maps.Animation.BOUNCE
+});
+
+// These are made to demo for a bigger aspect of the app.
+var pin00 = new google.maps.Marker({
+  position: {lat: 36.146162, lng: -86.803352},
+  map: map,
+  title: "E",
+  icon: "https://furnitureheaven.net/wp-content/uploads/2017/02/green-recycling-icon.jpg",
+  animation: google.maps.Animation.BOUNCE,
+});
+
+var  infoWindow = new google.maps.InfoWindow;
+ 
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('HERE');
+      infoWindow.open(map);
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.open(map);
+}
+
+
 $(function(){
 // NavBar Functions
 function openNav() {
@@ -31,11 +107,16 @@ var url = 'https://newsapi.org/v2/everything?' +
           'apiKey=d880922dbc9a49ccb187808ce3ffcb46';
 
 // display toggle variables
+
+
 $("#profile").css("display","none");
 var profileDisplay = true;
 
 $("#news").css("display", "none");
 var newsDisplay = true;
+
+$("#about-us").css("display", "none");
+var aboutUsDisplay = true;
 
 // News API call and article card generation 
 var req = new Request(url);
@@ -78,6 +159,7 @@ var req = new Request(url);
             "margin-bottom": "5px",
           });
           articleLink.attr("href", link);
+          articleLink.attr("target", "_blank");
           articleLink.text("Go to Article");
           articleCard.append(articleLink);
 
@@ -101,6 +183,12 @@ var req = new Request(url);
       };
     });
 
+    $("#news-close").click(function() {
+      $("#news").css("display", "none");
+        $(".map-launch").css("display", "initial");
+        newsDisplay = true;
+    });
+
     //toggles profile display 
 
     $("#profile-btn").click(function() {
@@ -114,6 +202,35 @@ var req = new Request(url);
         profileDisplay = true;
       };
     });
+
+    $("#prof-close").click(function() {
+      $("#profile").css("display", "none");
+        $(".map-launch").css("display", "initial");
+        profileDisplay = true;
+    });
+
+    //toggles about us display 
+
+    $("#info").click(function() {
+      if (aboutUsDisplay === true) {
+        $("#about-us").css("display","block");
+        $(".map-launch").css("display", "none");
+        aboutUsDisplay = false;
+      } else if (aboutUsDisplay === false) {
+        $("#about-us").css("display", "none");
+        $(".map-launch").css("display", "initial");
+        aboutUsDisplay = true;
+      };
+    });
+
+
+    $("#info-close").click(function() {
+      $("#about-us").css("display", "none");
+        $(".map-launch").css("display", "initial");
+        aboutUsDisplay = true;
+    });
+
+
 
 //  displays map on click 
 
