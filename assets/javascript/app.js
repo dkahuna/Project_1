@@ -73,6 +73,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
+
+
 $(function(){
   // NavBar Functions
   function openNav() {
@@ -86,16 +88,6 @@ $(function(){
     document.body.style.backgroundColor = "white";
   }
 
-$(function(){
-// NavBar Functions
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-}; 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-};
 
   // This is the API Key I created to use for our project
   //      AIzaSyADMNx7k6A0tejOvnLkPAKeslgegtlfhLs     //google map api key
@@ -127,12 +119,21 @@ var url = 'https://newsapi.org/v2/everything?' +
           'apiKey=d880922dbc9a49ccb187808ce3ffcb46';
 
 // display toggle variables
+
+
 $("#profile").css("display","none");
 var profileDisplay = true;
 
 $("#news").css("display", "none");
 var newsDisplay = true;
 
+
+$("#about-us").css("display", "none");
+var aboutUsDisplay = true;
+
+// News API call and article card generation 
+var req = new Request(url);
+=======
 
 for (var i = 0; i < articles.length; i++) {
 var link = articles[i].url;
@@ -147,6 +148,7 @@ articleCard.css({
   "margin": "5px",
   "border": "1px solid #3E3C39",
 });
+
 
   fetch(req)
     .then(function (response) {
@@ -186,6 +188,7 @@ articleCard.css({
             "margin-bottom": "5px",
           });
           articleLink.attr("href", link);
+          articleLink.attr("target", "_blank");
           articleLink.text("Go to Article");
           articleCard.append(articleLink);
 
@@ -233,6 +236,12 @@ $("#news").append(articleCard);
       };
     });
 
+    $("#news-close").click(function() {
+      $("#news").css("display", "none");
+        $(".map-launch").css("display", "initial");
+        newsDisplay = true;
+    });
+
     //toggles profile display 
 
     $("#profile-btn").click(function() {
@@ -246,6 +255,35 @@ $("#news").append(articleCard);
         profileDisplay = true;
       };
     });
+
+    $("#prof-close").click(function() {
+      $("#profile").css("display", "none");
+        $(".map-launch").css("display", "initial");
+        profileDisplay = true;
+    });
+
+    //toggles about us display 
+
+    $("#info").click(function() {
+      if (aboutUsDisplay === true) {
+        $("#about-us").css("display","block");
+        $(".map-launch").css("display", "none");
+        aboutUsDisplay = false;
+      } else if (aboutUsDisplay === false) {
+        $("#about-us").css("display", "none");
+        $(".map-launch").css("display", "initial");
+        aboutUsDisplay = true;
+      };
+    });
+
+
+    $("#info-close").click(function() {
+      $("#about-us").css("display", "none");
+        $(".map-launch").css("display", "initial");
+        aboutUsDisplay = true;
+    });
+
+
 
 //  displays map on click 
 
