@@ -254,8 +254,11 @@ $(function () {
   //Achievement functions 
   console.log(noStraws);
   var noStraws = localStorage.getItem("noStraws") ? localStorage.getItem("noStraws") : false; 
-  var oneHundo = localStorage.getItem("oneHundo") ? localStorage.getItem("oneHundo") : false; 
-  var plasticForDays = localStorage.getItem("plasticForDays") ? localStorage.getItem("plasticForDays") : false; 
+
+  // variables for planned future achievements
+
+  // var oneHundo = localStorage.getItem("oneHundo") ? localStorage.getItem("oneHundo") : false; 
+  // var plasticForDays = localStorage.getItem("plasticForDays") ? localStorage.getItem("plasticForDays") : false; 
 
 
   function achievements () {
@@ -264,12 +267,38 @@ $(function () {
       localStorage.setItem("noStraws", true);
       var achievementImg = $("<img>");
       achievementImg.attr("src", "./assets/images/no-straws.jpg");
-      // debugger;
-      $(".modal-body").prepend(achievementImg);
-      // $(".modal-body").text("Look at you caring about the planet!");
+      achievementImg.css({"height":"100%","width": "100%","border-radius": "25px"});
+      
+      var achievementThumb = $("<img>");
+      achievementThumb.attr("src", "./assets/images/no-straws.jpg");
+      achievementThumb.css({"height":"50px","width": "50px","border-radius": "50px" });
+
+      $("#achievement-log").prepend(achievementThumb);
+      $(".modal-img").prepend(achievementImg);
+      $(".modal-message").text("Look at you caring about the planet!");
+
     }; 
-    
+
+    //second achievemnt function
+
+    // if (totalDonation >= 100 && oneHundo === false) {
+    //   $("achievement-pop").modal();
+    //   localStorage.setItem("oneHundo", true);
+    //   var achievementImg = $("<img>");
+    //   achievementImg.attr("src", "./assets/images/bottles.jpg");
+    //   achievementImg.css({"height":"100%","width": "100%","border-radius": "25px" });
+      
+    //   var achievementThumb = $("<img>");
+    //   achievementThumb.attr("src", "./assets/images/bottles.jpg");
+    //   achievementThumb.css({"height":"50px","width": "50px","border-radius": "50px" });
+
+    //   $("#achievement-log").prepend(achievementThumb);
+    //   $(".modal-img").prepend(achievementImg);
+    //   $(".modal-body").text("100 pounds?! That's some milestone.");
+    // };
+
   };
+
 
 
 
