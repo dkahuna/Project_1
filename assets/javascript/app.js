@@ -39,7 +39,7 @@ var pin00 = new google.maps.Marker({
   position: {lat: 36.146162, lng: -86.803352},
   map: map,
   title: "E",
-  icon: "https://furnitureheaven.net/wp-content/uploads/2017/02/green-recycling-icon.jpg",
+  icon: "../images/mstile-150x150",
   animation: google.maps.Animation.BOUNCE,
 });
 
@@ -133,7 +133,7 @@ var aboutUsDisplay = true;
 
 // News API call and article card generation 
 var req = new Request(url);
-=======
+
 
 for (var i = 0; i < articles.length; i++) {
 var link = articles[i].url;
@@ -288,11 +288,11 @@ $("#news").append(articleCard);
 //  displays map on click 
 
 
-});
-}));
 
 
-});
+
+
+
 
   
   $(".map-launch").click(function() {
@@ -312,7 +312,7 @@ $("#news").append(articleCard);
 
   
   
-});
+}));
 
 
 //donation tracking
@@ -333,4 +333,4 @@ $("#donate").click(function(event) {
 });
 
 
-
+});
