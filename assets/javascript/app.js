@@ -106,20 +106,13 @@ $(function () {
     'sortBy=popularity&' +
     'apiKey=d880922dbc9a49ccb187808ce3ffcb46';
 
-  // display toggle variables
-
+  // sets components to display: none; on page load 
 
   $("#profile").css("display", "none");
-  var profileDisplay = true;
-
   $("#news").css("display", "none");
-  var newsDisplay = true;
-
   $("#about-us").css("display", "none");
-  var aboutUsDisplay = true;
-
   $("#map").css("display", "none");
-  var mapDisplay = true;
+  
 
   // News API call and article card generation 
   var req = new Request(url);
@@ -177,65 +170,47 @@ $(function () {
   //toggles news display
 
   $("#news-btn").click(function () {
-    if (newsDisplay === true) {
       $("#news").css("display", "block");
       $(".map-launch").css("display", "none");
+      $("#profile").css("display", "none");
       $("#map").css("display", "none");
-      newsDisplay = false;
-    } else if (newsDisplay === false) {
-      $("#news").css("display", "none");
-      $(".map-launch").css("display", "initial");
-      newsDisplay = true;
-    };
+      $("#about-us").css("display", "none");
   });
 
   $("#news-close").click(function () {
     $("#news").css("display", "none");
     $(".map-launch").css("display", "initial");
-    newsDisplay = true;
   });
 
   //toggles profile display 
 
   $("#profile-btn").click(function () {
-    if (profileDisplay === true) {
       $("#profile").css("display", "block");
       $(".map-launch").css("display", "none");
       $("#map").css("display", "none");
-      profileDisplay = false;
-    } else if (profileDisplay === false) {
-      $("#profile").css("display", "none");
-      $(".map-launch").css("display", "initial");
-      profileDisplay = true;
-    };
+      $("#about-us").css("display", "none");
+      $("#news").css("display", "none");
   });
 
   $("#prof-close").click(function () {
     $("#profile").css("display", "none");
     $(".map-launch").css("display", "initial");
-    profileDisplay = true;
   });
 
   //toggles about us display 
 
   $("#info").click(function () {
-    if (aboutUsDisplay === true) {
       $("#about-us").css("display", "block");
       $(".map-launch").css("display", "none");
       $("#map").css("display", "none");
-      aboutUsDisplay = false;
-    } else if (aboutUsDisplay === false) {
-      $("#about-us").css("display", "none");
-      $(".map-launch").css("display", "initial");
-      aboutUsDisplay = true;
-    };
+      $("#news").css("display", "none");
+      $("#profile").css("display", "none");
   });
 
 
   $("#info-close").click(function () {
     $("#about-us").css("display", "none");
     $(".map-launch").css("display", "initial");
-    aboutUsDisplay = true;
   });
 
 
@@ -271,7 +246,34 @@ $(function () {
     console.log(totalDonation)
     localStorage.setItem("totalDonation", totalDonation);
     $("#donation-total").text(`You have recycled ${totalDonation} pounds of plastic!`);
+    achievements();
+    
   });
+
+
+  //Achievement functions 
+  console.log(noStraws);
+  var noStraws = localStorage.getItem("noStraws") ? localStorage.getItem("noStraws") : false; 
+  var oneHundo = localStorage.getItem("oneHundo") ? localStorage.getItem("oneHundo") : false; 
+  var plasticForDays = localStorage.getItem("plasticForDays") ? localStorage.getItem("plasticForDays") : false; 
+
+
+  function achievements () {
+    if (totalDonation >= 1 && noStraws === false) {
+      $("#achievement-pop").modal();
+      localStorage.setItem("noStraws", true);
+      var achievementImg = $("<img>");
+      achievementImg.attr("src", "./assets/images/no-straws.jpg");
+      // debugger;
+      $(".modal-body").prepend(achievementImg);
+      // $(".modal-body").text("Look at you caring about the planet!");
+    }; 
+    
+  };
+
+
+
+
 
 
 });
