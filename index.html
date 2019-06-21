@@ -11,16 +11,49 @@
   <link href="assets\images\favicon.png" rel="icon" type="image/x-icon">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  
-  <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
   <script src="assets/javascript/app.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgVeiWc6vHOCN34JrqROgIphgKZX9psb4&callback=initMap"
-  type="text/javascript"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgVeiWc6vHOCN34JrqROgIphgKZX9psb4&callback=initMap"
+    type="text/javascript"></script>
   <title>Waste-To-Go</title>
 </head>
 
 <body>
-  
+
+
+<!-- achievement display -->
+
+<div class="modal fade" id="achievement-pop" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Achievement Unlocked!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-green" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <!-- map display -->
+
   <div id="map"></div>
 
 
@@ -80,7 +113,7 @@
                   <label for="exampleInputPassword1">Add a Donation</label>
                   <input type="number" class="form-control" id="donation-input" placeholder="Donation in LBS">
                 </div>
-                <button type="submit" class="btn btn-primary btn-green" id="donate">Submit</button>
+                <button type="submit" class="btn btn-green" id="donate">Submit</button>
               </form>
             </div>
           </div>
